@@ -18,9 +18,6 @@ export class Animal {
     }
 }
 
-
-
-
 export class Cachorro extends Animal {
     latir(): void {
         console.log(`${this.nome} está latindo.`);
