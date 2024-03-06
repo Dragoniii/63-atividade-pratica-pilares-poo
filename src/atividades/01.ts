@@ -8,6 +8,7 @@ export abstract class Ingresso {
     constructor(valor: number) {
         this.valor = valor
     }
+    abstract imprimeValor(): void 
 }
 
 export class Normal extends Ingresso {

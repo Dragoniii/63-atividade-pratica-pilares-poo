@@ -3,71 +3,69 @@
 // b. crie uma classe Velho, que herda Imovel e possui um desconto no preço. Crie métodos de acesso e impressão para este desconto.
 
 export class Imovel {
-    protected preco: number;
-    protected endereco: string;
+    protected _preco: number;
+    protected _endereco: string;
 
-    constructor(preco: number, endereco: string) {
-        this.preco = preco
-        this.endereco = endereco
+    constructor(_preco: number, _endereco: string) {
+        this._preco = _preco
+        this._endereco = _endereco
     }
 
-    public getEndereco(): string {
-        return this.endereco;
+    public get endereco(): string {
+        return this._endereco;
     }
 
-    public getPreco(): number {
-        return this.preco;
+    public get preco(): number {
+        return this._preco; 
     }
 
-    public setEndereco(endereco: string): void {
-        this.endereco = endereco;
+    public set endereco(endereco: string) {
+        this._endereco = endereco;
     }
 
-    public setPreco(preco: number): void {
-        this.preco = preco;
+    public set preco(preco: number) {
+        this._preco = preco;
     }
 
     public imprimeDetalhes(): void {
-        console.log(`Endereço: ${this.endereco}, Preço: R$ ${this.preco}`);
+        console.log(`Endereço: ${this._endereco}, Preço: R$ ${this._preco}`);
     }
 }
-
 
 export class Novo extends Imovel {
-    private valorAdicional: number;
-    constructor(preco: number, endereco: string, valorAdicional: number) {
+    private _valorAdicional: number;
+    constructor(preco: number, endereco: string, _valorAdicional: number) {
         super(preco, endereco)
-        this.valorAdicional = valorAdicional
+        this._valorAdicional = _valorAdicional
     }
-    public getAdicionalPreco(): number {
-        return this.valorAdicional;
+    public get adicionalPreco(): number {
+        return this._valorAdicional;
     }
 
-    public setAdicionalPreco(adicionalPreco: number): void {
-        this.valorAdicional = adicionalPreco;
+    public set adicionalPreco(adicionalPreco: number) {
+        this._valorAdicional = adicionalPreco;
     }
 
     public imprimeDetalhes(): void {
-        console.log(`Endereço: ${this.endereco}, Preço Novo com Adicional: R$ ${this.preco + this.valorAdicional}`);
+        console.log(`Endereço: ${this.endereco}, Preço Novo com Adicional: R$ ${this.preco + this._valorAdicional}`);
     }
 }
 
-
 export class Velho extends Imovel {
-    private valorDesconto: number;
-    constructor(preco: number, endereco: string, valorDesconto: number) {
+    private _valorDesconto: number;
+    constructor(preco: number, endereco: string, _valorDesconto: number) {
         super(preco, endereco)
-        this.valorDesconto = valorDesconto
+        this._valorDesconto = _valorDesconto
     }
-    public getDescontoPreco(): number {
-        return this.valorDesconto;
+    public get descontoPreco(): number {
+        return this._valorDesconto;
     }
 
-    public setDescontoPreco(valorDesconto: number): void {
-        this.valorDesconto = valorDesconto;
+    public set descontoPreco(valorDesconto: number) {
+        this._valorDesconto = valorDesconto;
     }
 
     public imprimeDetalhes(): void {
-        console.log(`Endereço: ${this.endereco}, Preço Velho com Desconto: R$ ${this.preco - this.valorDesconto}`);
+        console.log(`Endereço: ${this.endereco}, Preço Velho com Desconto: R$ ${this.preco - this._valorDesconto}`);
     }
     }
